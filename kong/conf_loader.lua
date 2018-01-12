@@ -104,8 +104,10 @@ local CONF_INFERENCES = {
 
   http2 = {typ = "boolean"},
   admin_http2 = {typ = "boolean"},
+  proxy = {typ = "boolean"},
   ssl = {typ = "boolean"},
   client_ssl = {typ = "boolean"},
+  admin = {typ = "boolean"},
   admin_ssl = {typ = "boolean"},
 
   proxy_access_log = {typ = "string"},

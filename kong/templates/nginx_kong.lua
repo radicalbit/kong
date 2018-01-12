@@ -53,6 +53,7 @@ init_worker_by_lua_block {
 
 proxy_next_upstream_tries 999;
 
+> if proxy or ssl then
 upstream kong_upstream {
     server 0.0.0.1;
     balancer_by_lua_block {
@@ -63,7 +64,9 @@ upstream kong_upstream {
 
 server {
     server_name kong;
+> if proxy then
     listen ${{PROXY_LISTEN}}${{PROXY_PROTOCOL}};
+> end
     error_page 400 404 408 411 412 413 414 417 /kong_error_handler;
     error_page 500 502 503 504 /kong_error_handler;
 
@@ -151,10 +154,14 @@ server {
         }
     }
 }
+> end
 
+> if admin or admin_ssl then
 server {
     server_name kong_admin;
+> if admin then
     listen ${{ADMIN_LISTEN}};
+> end
 
     access_log ${{ADMIN_ACCESS_LOG}};
     error_log ${{ADMIN_ERROR_LOG}} ${{LOG_LEVEL}};
@@ -191,4 +198,5 @@ server {
         return 200 'User-agent: *\nDisallow: /';
     }
 }
+> end
 ]]

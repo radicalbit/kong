@@ -110,6 +110,11 @@
                                  # `m`, with a minimum recommended value of
                                  # a few MBs.
 
+#proxy = on                      # Determines if Nginx should be listening for
+                                 # HTTP traffic on the `proxy_listen` address.
+                                 # To completely disable the proxy also check
+                                 # the `ssl` setting below.
+
 #ssl = on                        # Determines if Nginx should be listening for
                                  # HTTPS traffic on the `proxy_listen_ssl`
                                  # address. If disabled, Nginx will only bind
@@ -155,6 +160,11 @@
                                  # this value is statically defined on the node,
                                  # and currently cannot be configured on a
                                  # per-API basis.
+
+#admin = on                      # Determines if Nginx should be listening for
+                                 # HTTP traffic on the `admin_listen` address.
+                                 # To completely disable the admin interface
+                                 # also check the `admin_ssl` setting below.
 
 #admin_ssl = on                  # Determines if Nginx should be listening for
                                  # HTTPS traffic on the `admin_listen_ssl`

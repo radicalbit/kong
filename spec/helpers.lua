@@ -300,6 +300,14 @@ local function admin_client(timeout)
   return http_client(conf.admin_ip, conf.admin_port, timeout)
 end
 
+--- returns a pre-configured `http_client` for the Kong admin SSL port.
+-- @name admin_ssl_client
+local function admin_ssl_client(timeout)
+  local client = http_client(conf.admin_ip, conf.admin_ssl_port, timeout)
+  assert(client:ssl_handshake())
+  return client
+end
+
 ---
 -- TCP/UDP server helpers
 --
@@ -985,6 +993,7 @@ return {
   proxy_client = proxy_client,
   admin_client = admin_client,
   proxy_ssl_client = proxy_ssl_client,
+  admin_ssl_client = admin_ssl_client,
   prepare_prefix = prepare_prefix,
   clean_prefix = clean_prefix,
   wait_for_invalidation = wait_for_invalidation,
