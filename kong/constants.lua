@@ -1,5 +1,6 @@
 local plugins = {
   "jwt",
+  "jwt-claims-header",
   "acl",
   "correlation-id",
   "cors",

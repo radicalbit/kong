@@ -239,6 +239,9 @@ build = {
     ["kong.plugins.jwt.jwt_parser"] = "kong/plugins/jwt/jwt_parser.lua",
     ["kong.plugins.jwt.asn_sequence"] = "kong/plugins/jwt/asn_sequence.lua",
 
+    ["kong.plugins.jwt-claims-header.handler"] = "kong/plugins/jw-claims-header/handler.lua",
+    ["kong.plugins.jwt-claims-header.schema"] = "kong/plugins/jwt-claims-header/schema.lua",
+
     ["kong.plugins.hmac-auth.migrations.cassandra"] = "kong/plugins/hmac-auth/migrations/cassandra.lua",
     ["kong.plugins.hmac-auth.migrations.postgres"] = "kong/plugins/hmac-auth/migrations/postgres.lua",
     ["kong.plugins.hmac-auth.handler"] = "kong/plugins/hmac-auth/handler.lua",
